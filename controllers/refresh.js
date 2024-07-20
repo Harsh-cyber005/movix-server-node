@@ -4,6 +4,7 @@ const User = require('../model/user');
 
 const HandleRefresh = async (req, res) => {
     const cookies = req.cookies;
+    console.log(cookies?.jwt);
     if(!cookies?.jwt) return res.sendStatus(401);
     const refresh_token = cookies.jwt;
 
