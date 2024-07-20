@@ -8,7 +8,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const connectDB = require('./dataConnect.js');
 
 var corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://movix-client-react.vercel.app',
     credentials: true,
 }
 app.use(cors(corsOptions));
