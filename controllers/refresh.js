@@ -4,6 +4,7 @@ const User = require('../model/user');
 
 const HandleRefresh = async (req, res) => {
     const cookies = req.cookies;
+    
     if(!cookies?.jwt) return res.status(200).json({message: 'Unauthorized',cookiefound: cookies?.jwt});
     const refresh_token = cookies.jwt;
 
