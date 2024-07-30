@@ -74,7 +74,7 @@ app.use('/search', ensureDbConnection, searchRoute);
 app.use('/favourites', favouritesRoute);
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Hello World!, from termux');
 })
 
 app.listen(port, () => {
