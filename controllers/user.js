@@ -35,7 +35,7 @@ async function HandleUserSignIn(req, res) {
     const { password: pwd, ...rest } = user.toObject()
     user.refresh_token = refresh_token;
     await user.save();
-    res.cookie('jwt',refresh_token, {httpOnly: true, maxAge: 24*60*60*1000});
+    res.cookie('jwt',refresh_token, {httpOnly: true, maxAge: 24*60*60*1000, secure: true, sameSite: 'none'});
     return res.json({ access_token: access_token,email: user.email, favourites: user.favourite, plan: user.plan, recentSearches: user.recentSearches});
 }
 
