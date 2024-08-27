@@ -63,6 +63,7 @@ const langRoute = require('./routes/lang');
 const detailRoute = require('./routes/detail');
 const searchRoute = require('./routes/search');
 const favouritesRoute = require('./routes/favourites');
+const orderRoute = require('./routes/order');
 
 app.use('/user', userRoute);
 app.use('/refresh', refreshRoute);
@@ -72,6 +73,7 @@ app.use('/lang', ensureDbConnection, langRoute);
 app.use('/detail', ensureDbConnection, detailRoute);
 app.use('/search', ensureDbConnection, searchRoute);
 app.use('/favourites', favouritesRoute);
+app.use('/order', orderRoute);
 
 app.get('/', (req, res) => {
     res.send('Hello World!, from termux');

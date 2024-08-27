@@ -39,7 +39,19 @@ async function HandleUserSignIn(req, res) {
     return res.json({ access_token: access_token,email: user.email, favourites: user.favourite, plan: user.plan, recentSearches: user.recentSearches});
 }
 
+const HandlePlan = async (req, res) => {
+    const { plan, name } = req.body;
+    const user = await User.findOne({ name });
+    if (!user) {
+        return res.status(401).json({ message: 'Invalid credentials' });
+    }
+    user.plan = plan;
+    await user.save();
+    return res.status(200).json({ message: 'Plan updated successfully' });
+}
+
 module.exports = {
     HandleUserSignUp,
-    HandleUserSignIn
+    HandleUserSignIn,
+    HandlePlan
 }
